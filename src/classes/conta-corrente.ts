@@ -11,7 +11,6 @@ export default class ContaCorrente {
   private _saldo: number;
   private _senha: string;
 
-
   constructor(
     agencia: number,
     numero: number,
@@ -19,7 +18,6 @@ export default class ContaCorrente {
     cpf: string,
     dataNascimento: Date,
     dataCriacao: Date
-
   ) {
     this._id = crypto.randomUUID();
     this._agencia = agencia;
@@ -31,9 +29,11 @@ export default class ContaCorrente {
     this._saldo = 0;
     this._senha = crypto.randomBytes(5).toString("base64");
 
-    console.log(`Cliente: ${this._nomeCliente}  ID: ${this._id}`);
-    console.log(`Senha: ${this._senha}`);
-
+    console.log(
+      `Cliente: ${this.nomeCliente}
+      ID: ${this.id}
+      Senha: ${this.senha}`
+    );
   }
 
   public get id() {
@@ -71,7 +71,6 @@ export default class ContaCorrente {
   public get senha() {
     return this._senha;
   }
-
 
   public setSaldo(valor: number, tipoOperacao: "C" | "D") {
     if (!valor || valor <= 0) {
